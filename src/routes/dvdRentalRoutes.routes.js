@@ -1,56 +1,32 @@
 import { Router } from "express";
-import { pool } from "../db.js";
+import { getActors, getAddress, getCategory, getCity, getCountry, getCustomer, getFilm, getInventory, getLanguage, getPayment, getRental, getStaff } from "../controllers/dvdRental.controllers.js";
+
 
 const router = Router();
 
-router.get('/actor', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	actor')
-    res.json(rows)
-})
-router.get('/address', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	address')
-    res.json(rows)
-})
-router.get('/category', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	category')
-    res.json(rows)
-})
-router.get('/city', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	city')
-    res.json(rows)
-})
-router.get('/country', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	country')
-    res.json(rows)
-})
-router.get('/customer', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	customer')
-    res.json(rows)
-})
-router.get('/film', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	film')
-    res.json(rows)
-})
-router.get('/inventory', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	inventory')
-    res.json(rows)
-})
-router.get('/language', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	language')
-    res.json(rows)
-})
-router.get('/payment', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	payment')
-    res.json(rows)
-})
-router.get('/rental', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	rental')
-    res.json(rows)
-})
-router.get('/staff', async (req, res) => {
-const {rows} = await pool.query('SELECT * FROM	staff')
-    res.json(rows)
-})
+router.get('/actor', getActors)
+
+router.get('/address',getAddress)
+
+router.get('/category', getCategory)
+
+router.get('/city', getCity)
+
+router.get('/country', getCountry)
+
+router.get('/customer', getCustomer)
+
+router.get('/film', getFilm)
+
+router.get('/inventory', getInventory)
+
+router.get('/language', getLanguage)
+
+router.get('/payment', getPayment)
+
+router.get('/rental', getRental)
+
+router.get('/staff', getStaff)
 
 
 export default router;
